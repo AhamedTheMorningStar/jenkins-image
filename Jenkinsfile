@@ -10,7 +10,7 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Build docker image'){
+        /*stage('Build docker image'){
             steps{
                 script{
                     sh 'docker build -t javatechie/devops-integration .'
@@ -22,8 +22,7 @@ pipeline {
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
                    sh 'docker login -u javatechie -p ${dockerhubpwd}'
-
-}
+                   }
                    sh 'docker push javatechie/devops-integration'
                 }
             }
@@ -34,6 +33,6 @@ pipeline {
                     kubernetesDeploy (configs: 'deploymentservice.yaml',kubeconfigId: 'k8sconfigpwd')
                 }
             }
-        }
+        }*/
     }
 }
